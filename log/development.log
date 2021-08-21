@@ -4472,3 +4472,209 @@ Processing by MoviesController#index as HTML
 Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.2ms | Allocations: 8854)
 
 
+Started GET "/movies/10" for 127.0.0.1 at 2021-08-21 15:46:46 +0700
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/movies_controller.rb:8:in `show'
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/show.html.haml within layouts/application
+  Rendered movies/show.html.haml within layouts/application (Duration: 1.3ms | Allocations: 282)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 30.5ms | Allocations: 3944)
+Completed 200 OK in 40ms (Views: 31.8ms | ActiveRecord: 0.9ms | Allocations: 5706)
+
+
+Started GET "/movies/10/edit" for 127.0.0.1 at 2021-08-21 15:46:47 +0700
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:20:in `edit'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/edit.html.haml within layouts/application
+  Rendered movies/edit.html.haml within layouts/application (Duration: 7.9ms | Allocations: 1772)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 25.8ms | Allocations: 5507)
+Completed 200 OK in 32ms (Views: 27.4ms | ActiveRecord: 0.3ms | Allocations: 6673)
+
+
+Started GET "/movies/10/edit" for 127.0.0.1 at 2021-08-21 15:48:08 +0700
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:20:in `edit'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/edit.html.haml within layouts/application
+  Rendered movies/edit.html.haml within layouts/application (Duration: 4.3ms | Allocations: 2968)
+  Rendered layout layouts/application.html.haml (Duration: 5.2ms | Allocations: 3043)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms | Allocations: 5038)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check %h2 Edit Movie
+
+= form_tag movie_path(@movie), :method => :put do
+     
+	= label :movie, :title, 'Title'
+	= text_field :movie, 'title'
+     
+	= label :movie, :rating, 'Rating'
+	= select :movie, :rating, ['G', 'PG', 'PG13', 'R', 'NC-17']
+     
+	= label :movie, :release_date, 'Released On'
+	= date_select :movie, :release_date :start_year => 1930
+     
+	= submit_tag 'Save Changes'
+	= link_to 'Cancel', :back
+
+):
+1:    %h2 Edit Movie
+2:    
+3:    = form_tag movie_path(@movie), :method => :put do
+4:         
+5:    	= label :movie, :title, 'Title'
+6:    	= text_field :movie, 'title'
+7:         
+8:    	= label :movie, :rating, 'Rating'
+9:    	= select :movie, :rating, ['G', 'PG', 'PG13', 'R', 'NC-17']
+10:         
+11:    	= label :movie, :release_date, 'Released On'
+12:    	= date_select :movie, :release_date :start_year => 1930
+13:         
+14:    	= submit_tag 'Save Changes'
+15:    	= link_to 'Cancel', :back
+  
+app/views/movies/edit.html.haml:12: syntax error, unexpected ':', expecting ')'
+app/views/movies/edit.html.haml:13: void value expression
+app/views/movies/edit.html.haml:12: syntax error, unexpected ':', expecting ')'
+app/views/movies/edit.html.haml:13: void value expression
+app/views/movies/edit.html.haml:12: syntax error, unexpected ':', expecting ')'
+app/views/movies/edit.html.haml:13: void value expression
+app/views/movies/edit.html.haml:12: syntax error, unexpected ':', expecting ')'
+app/views/movies/edit.html.haml:13: void value expression
+app/views/movies/edit.html.haml:12: syntax error, unexpected ':', expecting ')'
+app/views/movies/edit.html.haml:13: void value expression
+app/views/movies/edit.html.haml:12: syntax error, unexpected ':', expecting ')'
+app/views/movies/edit.html.haml:13: void value expression
+Started GET "/movies" for 127.0.0.1 at 2021-08-21 15:49:07 +0700
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 12.5ms | Allocations: 4476)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 20.3ms | Allocations: 10696)
+Completed 200 OK in 25ms (Views: 23.3ms | ActiveRecord: 0.4ms | Allocations: 12093)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2021-08-21 15:49:08 +0700
+Processing by MoviesController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/new.html.haml within layouts/application
+  Rendered movies/new.html.haml within layouts/application (Duration: 5.4ms | Allocations: 3644)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 18.8ms | Allocations: 7293)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.0ms | Allocations: 7995)
+
+
+Started GET "/movies" for 127.0.0.1 at 2021-08-21 15:49:54 +0700
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 7.7ms | Allocations: 4447)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 15.5ms | Allocations: 10655)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.2ms | Allocations: 12081)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2021-08-21 15:49:55 +0700
+Processing by MoviesController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/new.html.haml within layouts/application
+  Rendered movies/new.html.haml within layouts/application (Duration: 12.8ms | Allocations: 4761)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 25.3ms | Allocations: 8418)
+Completed 200 OK in 27ms (Views: 26.1ms | ActiveRecord: 0.0ms | Allocations: 9120)
+
+
+Started GET "/movies" for 127.0.0.1 at 2021-08-21 15:49:59 +0700
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 4.8ms | Allocations: 1450)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 15.0ms | Allocations: 4467)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.3ms | Allocations: 5556)
+
+
+Started GET "/movies" for 127.0.0.1 at 2021-08-21 15:50:16 +0700
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 6.3ms | Allocations: 4453)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 15.5ms | Allocations: 10670)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.2ms | Allocations: 12101)
+
+
+Started GET "/movies/13" for 127.0.0.1 at 2021-08-21 15:50:16 +0700
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/show.html.haml within layouts/application
+  Rendered movies/show.html.haml within layouts/application (Duration: 4.6ms | Allocations: 2895)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 14.5ms | Allocations: 6595)
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 0.2ms | Allocations: 7870)
+
+
+Started GET "/movies/13/edit" for 127.0.0.1 at 2021-08-21 15:50:18 +0700
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:20:in `edit'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/edit.html.haml within layouts/application
+  Rendered movies/edit.html.haml within layouts/application (Duration: 6.5ms | Allocations: 4950)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 15.6ms | Allocations: 8587)
+Completed 200 OK in 20ms (Views: 16.7ms | ActiveRecord: 0.2ms | Allocations: 9909)
+
+
+Started GET "/movies/13" for 127.0.0.1 at 2021-08-21 15:50:21 +0700
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/show.html.haml within layouts/application
+  Rendered movies/show.html.haml within layouts/application (Duration: 1.4ms | Allocations: 283)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 16.1ms | Allocations: 4058)
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.2ms | Allocations: 5222)
+
+
+Started GET "/movies/13/edit" for 127.0.0.1 at 2021-08-21 15:51:14 +0700
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:20:in `edit'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/edit.html.haml within layouts/application
+  Rendered movies/edit.html.haml within layouts/application (Duration: 6.4ms | Allocations: 2890)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 15.7ms | Allocations: 5871)
+Completed 200 OK in 21ms (Views: 16.9ms | ActiveRecord: 0.2ms | Allocations: 7035)
+
+
