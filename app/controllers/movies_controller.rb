@@ -5,8 +5,13 @@ class MoviesController < ApplicationController
  end
  def show
   id = params[:id] # retrieve movie ID from URI route
-  @movie = Movie.find(id) # look up movie by unique ID
-  # will render app/views/movies/show.html.haml by default
+  begin
+     @movie = Movie.find(id) # look up movie by unique ID
+     # will render app/views/movies/show.html.haml by default
+  rescue
+    flash[:notice] = "Movie id #{id} not found."
+    redirect_to movies_path
+  end
  end
  def new
 	# default: render ‘new’ template
@@ -32,8 +37,8 @@ class MoviesController < ApplicationController
      flash[:notice] = "Movie '#{@movie.title}' deleted."
      redirect_to movies_path
  end
-  private
-
+ 
+private
     def movie_params
       params.require(:movie).permit(:title, :rating, :description, :release_date)
     end
