@@ -12,5 +12,6 @@
 		#notice.message= flash[:notice]
 	- elsif flash[:warning]
 		#warning.message= flash[:warning]
-
+	= link_to movies_path do 
+		%header{:class=>"banner"} RottenPotatoes
 	= yield
